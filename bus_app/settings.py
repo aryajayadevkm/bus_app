@@ -44,8 +44,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'rest_framework',
 
     'users',
+    'bus',
 
 ]
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -83,23 +85,23 @@ WSGI_APPLICATION = 'bus_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-#         'NAME': 'bus_app',
-#         'USER': 'bus_app_admin',
-#         'PASSWORD': 'bus123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     },
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'busapp',
+        'USER': 'busappadmin',
+        'PASSWORD': 'bus123',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+}
 
 REDIS_OPTIONS = {
     'conn': {
@@ -109,6 +111,12 @@ REDIS_OPTIONS = {
         'password': None
     },
 }
+
+CLUSTER_ZOOM_LIMIT = 14
+ANYCLUSTER_GEODJANGO_MODEL = 'bus.FromTo'
+ANYCLUSTER_COORDINATES_COLUMN = 'point'
+#ANYCLUSTER _ID_COLUMN = 'id'
+GMAPS_BROWSER_TOKEN = 'AIzaSyBBXgDPZ9DaT_e8siR5TvgS3wTt95yqHCw'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -159,3 +167,5 @@ SITE_ID = 1
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+ACCOUNT_SESSION_REMEMBER = True
