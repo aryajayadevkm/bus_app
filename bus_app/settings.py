@@ -116,7 +116,7 @@ CLUSTER_ZOOM_LIMIT = 14
 ANYCLUSTER_GEODJANGO_MODEL = 'bus.FromTo'
 ANYCLUSTER_COORDINATES_COLUMN = 'point'
 #ANYCLUSTER _ID_COLUMN = 'id'
-GMAPS_BROWSER_TOKEN = 'AIzaSyBBXgDPZ9DaT_e8siR5TvgS3wTt95yqHCw'
+GMAPS_BROWSER_TOKEN = ''
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
